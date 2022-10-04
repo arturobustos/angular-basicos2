@@ -1,0 +1,29 @@
+
+<div *ngIf="heroeBorrado!==''; else noBorrado"><!--solo muestra los valores si la condicion da TRUE-->
+    <!--podemos ejecutar un else dentro del mismo contenedor, indicando que 
+   ejecute un template en caso de que la condicion no sea true-->
+   <h3>Heroes borrados: <small>{{heroeBorrado}}</small></h3><br><br>
+</div>
+<!-- <div *ngIf="!heroeBorrado">negamos la condicion haciendola que solo muestre el contenido
+cuando heroeBorrado no tenga elementos
+   <h3>no a borrado nada</h3>
+</div> -->
+
+<ng-template #noBorrado>
+   <h3>no ha borrado nada.</h3>
+</ng-template>
+
+
+<button (click)="borrarHeroe()">Borrar ultimo heroe</button>
+<p>listado de Heroes</p>
+<ul>
+ <li *ngFor="let heroe of heroes; let i = index"><!--let i extrae el index y lo imprime-->
+    <!--como heroe es de tipo string podemos ponerlo directamente-->
+    {{ i + 1 }} - {{heroe}} <!--para que el index empiece en 1-->
+ </li>
+</ul>
+
+
+ 
+
+
